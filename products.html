@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produkte - SwissGrooves</title>
     <style>
-        /* CSS bleibt unverändert */
+        /* CSS bis auf eine kleine Ergänzung unverändert */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
@@ -43,8 +43,18 @@
         .product-card img { max-width: 100%; height: auto; border-radius: 4px; }
         .product-card h4 { margin: 10px 0 5px 0; color: #f0f0f0; }
         .product-card p { margin: 0; color: #aaa; }
-        .filter-group { margin-bottom: 20px; } /* Styling für Filtergruppen */
+        .filter-group { margin-bottom: 20px; }
         .filter-group h3 { font-size: 16px; border-bottom: 1px solid #555; margin-bottom: 10px; }
+        
+        /* ===== NEUE CSS-REGEL HINZUGEFÜGT ===== */
+        .filter-group em {
+            color: #aaa;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        .filter-group em:hover {
+            color: #fff;
+        }
     </style>
 </head>
 <body>
@@ -64,18 +74,25 @@
     <main class="main-content">
         <aside class="filters">
             <h2>Filter</h2>
+            
             <div class="filter-group">
                 <h3>Genre</h3>
-                <p>Rock, Jazz, Pop, Klassik</p>
+                <p><strong>Rock</strong>, Jazz, Pop, Klassik</p>
+                <p><em>Weitere Filter</em></p>
             </div>
+
             <div class="filter-group">
                 <h3>Jahrzehnt</h3>
-                <p>'60er, '70er, '80er, '90er</p>
+                <p><strong>'60er</strong>, '70er, '80er, '90er</p>
+                <p><em>Weitere Filter</em></p>
             </div>
+
             <div class="filter-group">
                 <h3>Tonträger</h3>
-                <p>Vinyl, CD, Kassette</p>
+                <p><strong>Vinyl</strong>, CD, Kassette</p>
+                <p><em>Weitere Filter</em></p>
             </div>
+
         </aside>
 
         <section class="center-column">

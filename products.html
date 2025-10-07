@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produkte - SwissGrooves</title>
     <style>
-        /* CSS bis auf eine kleine Ergänzung unverändert */
+        /* CSS remains unchanged */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             margin: 0;
@@ -26,12 +26,11 @@
         .logo { width: 150px; }
         .nav-links a { margin: 0 15px; text-decoration: none; color: #f0f0f0; font-weight: 500; }
         .cart-icon { color: #f0f0f0; }
-        .cart-icon img { width: 30px; cursor: pointer; }
         .main-content { display: grid; grid-template-columns: 250px 1fr 300px; gap: 20px; padding: 20px; height: calc(100vh - 82px); }
         .filters, .chatbot, .center-column { background-color: rgba(20, 20, 20, 0.9); padding: 20px; border-radius: 8px; box-shadow: none; }
         h2, h3 { margin-top: 0; border-bottom: 1px solid #444; padding-bottom: 10px; }
         .center-column { display: flex; flex-direction: column; padding: 0; }
-        .selected-product { flex: 1; padding: 20px; border-bottom: 1px solid #444; display: flex; gap: 20px; } /* Flexbox für Bild & Text */
+        .selected-product { flex: 1; padding: 20px; border-bottom: 1px solid #444; display: flex; gap: 20px; }
         .selected-product img { width: 180px; height: 180px; border-radius: 4px; object-fit: cover;}
         .selected-product-details { text-align: left; }
         .selected-product-details h2 { font-size: 24px; border: none; padding-bottom: 5px; margin-bottom: 5px;}
@@ -40,21 +39,13 @@
         .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px; }
         .product-card { background-color: #2a2a2a; border: 1px solid #444; border-radius: 8px; text-align: center; padding: 10px; cursor: pointer; transition: border-color 0.3s; }
         .product-card:hover { border-color: #777; }
-        .product-card img { max-width: 100%; height: auto; border-radius: 4px; }
-        .product-card h4 { margin: 10px 0 5px 0; color: #f0f0f0; }
-        .product-card p { margin: 0; color: #aaa; }
+        .product-card img { width: 100%; height: 140px; object-fit: cover; border-radius: 4px; }
+        .product-card h4 { margin: 10px 0 5px 0; color: #f0f0f0; font-size: 14px; }
+        .product-card p { margin: 0; color: #aaa; font-size: 12px; }
         .filter-group { margin-bottom: 20px; }
         .filter-group h3 { font-size: 16px; border-bottom: 1px solid #555; margin-bottom: 10px; }
-        
-        /* ===== NEUE CSS-REGEL HINZUGEFÜGT ===== */
-        .filter-group em {
-            color: #aaa;
-            cursor: pointer;
-            transition: color 0.3s;
-        }
-        .filter-group em:hover {
-            color: #fff;
-        }
+        .filter-group em { color: #aaa; cursor: pointer; transition: color 0.3s; }
+        .filter-group em:hover { color: #fff; }
     </style>
 </head>
 <body>
@@ -74,29 +65,24 @@
     <main class="main-content">
         <aside class="filters">
             <h2>Filter</h2>
-            
             <div class="filter-group">
                 <h3>Genre</h3>
                 <p><strong>Rock</strong>, Jazz, Pop, Klassik</p>
                 <p><em>Weitere Filter</em></p>
             </div>
-
             <div class="filter-group">
                 <h3>Jahrzehnt</h3>
                 <p><strong>'60er</strong>, '70er, '80er, '90er</p>
                 <p><em>Weitere Filter</em></p>
             </div>
-
             <div class="filter-group">
                 <h3>Tonträger</h3>
                 <p><strong>Vinyl</strong>, CD, Kassette</p>
                 <p><em>Weitere Filter</em></p>
             </div>
-
         </aside>
 
         <section class="center-column">
-            
             <div class="selected-product">
                 <img src="cover.jpg" alt="Album Cover von Out Of Our Heads">
                 <div class="selected-product-details">
@@ -109,13 +95,38 @@
             <div class="product-grid-container">
                 <h2>Unsere Auswahl</h2>
                 <div class="product-grid">
-                    <div class="product-card"><img src="https://placehold.co/200x200/2a2a2a/444" alt="Album Cover"><h4>Album Titel</h4><p>Künstler</p></div>
-                    <div class="product-card"><img src="https://placehold.co/200x200/2a2a2a/444" alt="Album Cover"><h4>Album Titel</h4><p>Künstler</p></div>
-                    <div class="product-card"><img src="https://placehold.co/200x200/2a2a2a/444" alt="Album Cover"><h4>Album Titel</h4><p>Künstler</p></div>
-                    <div class="product-card"><img src="https://placehold.co/200x200/2a2a2a/444" alt="Album Cover"><h4>Album Titel</h4><p>Künstler</p></div>
-                    <div class="product-card"><img src="https://placehold.co/200x200/2a2a2a/444" alt="Album Cover"><h4>Album Titel</h4><p>Künstler</p></div>
-                    <div class="product-card"><img src="https://placehold.co/200x200/2a2a2a/444" alt="Album Cover"><h4>Album Titel</h4><p>Künstler</p></div>
-                </div>
+                    
+                    <div class="product-card">
+                        <img src="beatles.png" alt="Cover von Sgt. Pepper's Lonely Hearts Club Band">
+                        <h4>Sgt. Pepper's...</h4>
+                        <p>The Beatles (1967)</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="king.png" alt="Cover von In the Court of the Crimson King">
+                        <h4>In the Court of...</h4>
+                        <p>King Crimson (1969)</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="who.png" alt="Cover von Magic Bus: The Who on Tour">
+                        <h4>Magic Bus...</h4>
+                        <p>The Who (1968)</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="zappa.png" alt="Cover von Hot Rats">
+                        <h4>Hot Rats</h4>
+                        <p>Frank Zappa (1969)</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="andy.png" alt="Cover von The Velvet Underground & Nico">
+                        <h4>The Velvet...</h4>
+                        <p>The Velvet Underground (1967)</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="jeff.png" alt="Cover von Takes Off">
+                        <h4>Takes Off</h4>
+                        <p>Jefferson Airplane (1966)</p>
+                    </div>
+                    </div>
             </div>
         </section>
 

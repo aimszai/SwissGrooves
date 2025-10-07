@@ -29,6 +29,7 @@
         .filters, .chatbot, .center-column { background-color: rgba(20, 20, 20, 0.9); padding: 20px; border-radius: 8px; box-shadow: none; }
         h2, h3 { margin-top: 0; border-bottom: 1px solid #444; padding-bottom: 10px; }
         .center-column { display: flex; flex-direction: column; padding: 0; }
+        
         .selected-product {
             flex-shrink: 0;
             padding: 20px;
@@ -37,43 +38,15 @@
             justify-content: space-between;
             align-items: center;
         }
-        .album-info {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        .selected-product img {
-            width: 150px;
-            height: 150px;
-            border-radius: 4px;
-            object-fit: cover;
-        }
+        .album-info { display: flex; align-items: center; gap: 20px; }
+        .selected-product img { width: 150px; height: 150px; border-radius: 4px; object-fit: cover; }
         .selected-product-details h2 { font-size: 24px; border: none; padding-bottom: 5px; margin-bottom: 5px;}
         .selected-product-details p { margin: 0 0 10px 0; font-size: 16px; color: #ccc; max-width: 400px; }
-        .purchase-section {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-        }
-        .price {
-            font-size: 22px;
-            font-weight: bold;
-            margin: 0 0 10px 0;
-            color: #fff;
-        }
-        .add-to-basket-btn {
-            background-color: #f0f0f0;
-            color: #111;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            font-size: 14px;
-            font-weight: bold;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
+        .purchase-section { display: flex; flex-direction: column; align-items: flex-end; }
+        .price { font-size: 22px; font-weight: bold; margin: 0 0 10px 0; color: #fff; }
+        .add-to-basket-btn { background-color: #f0f0f0; color: #111; border: none; border-radius: 5px; padding: 10px 20px; font-size: 14px; font-weight: bold; text-transform: uppercase; cursor: pointer; transition: background-color 0.3s; }
         .add-to-basket-btn:hover { background-color: #fff; }
+
         .product-grid-container { flex: 1; overflow-y: auto; padding: 20px; }
         .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 20px; }
         .product-card { background-color: #2a2a2a; border: 1px solid #444; border-radius: 8px; text-align: center; padding: 10px; cursor: pointer; transition: border-color 0.3s; }
@@ -87,6 +60,33 @@
         .filter-group em:hover { color: #fff; }
         .filter-group p { color: #888; }
         .filter-group p strong { color: #f0f0f0; }
+
+        /* --- NEUES CSS FÜR DEN CHATBOT --- */
+        .chat-history {
+            margin-top: 15px;
+        }
+        .chat-message {
+            padding: 8px 12px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            max-width: 90%;
+            line-height: 1.4;
+        }
+        .user-message {
+            background-color: #3a3a3a;
+            align-self: flex-end; /* Nicht verwendet, da wir keine Flexbox auf dem Parent haben, aber gut für die Zukunft */
+        }
+        .bot-message {
+            background-color: #2a2a2a;
+        }
+        .chat-message p {
+            margin: 0;
+            color: #f0f0f0;
+        }
+        .chat-message p strong {
+            color: #fff;
+        }
+
     </style>
 </head>
 <body>
@@ -178,7 +178,16 @@
 
         <aside class="chatbot">
             <h2>Chat</h2>
-            <p>Chat-Verlauf...</p>
+            
+            <div class="chat-history">
+                <div class="chat-message user-message">
+                    <p>ich suche die platte out of our heads von den stones</p>
+                </div>
+                <div class="chat-message bot-message">
+                    <p><strong>GrooveBot:</strong> Klar. Ich denke mal auf Vinyl? Ich habe Dir Deine Filter gleich mit angepasst, falls Du noch weiterstöbern möchtest. Lass mich wissen, wenn Du noch was brauchst! Wir haben gerade ein super Angebot auf Audio-Technika Tonabnehmer!</p>
+                </div>
+            </div>
+
         </aside>
     </main>
 

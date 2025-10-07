@@ -30,13 +30,12 @@
         h2, h3 { margin-top: 0; border-bottom: 1px solid #444; padding-bottom: 10px; }
         .center-column { display: flex; flex-direction: column; padding: 0; }
         
-        /* --- CSS-ÄNDERUNGEN FÜR NEUES LAYOUT --- */
         .selected-product {
-            flex-shrink: 0; /* Verhindert, dass der Bereich schrumpft */
+            flex-shrink: 0;
             padding: 20px;
             border-bottom: 1px solid #444;
             display: flex;
-            justify-content: space-between; /* Wichtigste Änderung: Schiebt Elemente auseinander */
+            justify-content: space-between;
             align-items: center;
         }
         .album-info {
@@ -45,22 +44,22 @@
             gap: 20px;
         }
         .selected-product img {
-            width: 150px; /* Leicht verkleinert für besseres Layout */
+            width: 150px;
             height: 150px;
             border-radius: 4px;
             object-fit: cover;
         }
         .selected-product-details h2 { font-size: 24px; border: none; padding-bottom: 5px; margin-bottom: 5px;}
-        .selected-product-details p { margin: 0 0 10px 0; font-size: 16px; color: #ccc; max-width: 400px; } /* Max-width hinzugefügt */
+        .selected-product-details p { margin: 0 0 10px 0; font-size: 16px; color: #ccc; max-width: 400px; }
         .purchase-section {
             display: flex;
-            flex-direction: column; /* Stellt Preis und Button untereinander */
-            align-items: flex-end; /* Richtet sie rechtsbündig aus */
+            flex-direction: column;
+            align-items: flex-end;
         }
         .price {
             font-size: 22px;
             font-weight: bold;
-            margin: 0 0 10px 0; /* Margin angepasst */
+            margin: 0 0 10px 0;
             color: #fff;
         }
         .add-to-basket-btn {
@@ -96,14 +95,38 @@
 <body>
 
     <header>
-        </header>
+        <img src="https://placehold.co/150x50/FFFFFF/000000?text=SwissGrooves" alt="SwissGrooves Logo" class="logo">
+        <nav class="nav-links">
+            <a href="#">Kategorien</a>
+            <a href="#">Über uns</a>
+            <a href="#">Kontakt</a>
+        </nav>
+        <div class="cart-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+        </div>
+    </header>
 
     <main class="main-content">
         <aside class="filters">
-            </aside>
+            <h2>Filter</h2>
+            <div class="filter-group">
+                <h3>Genre</h3>
+                <p><strong>Rock</strong>, Jazz, Pop, Klassik</p>
+                <p><em>Weitere Filter</em></p>
+            </div>
+            <div class="filter-group">
+                <h3>Jahrzehnt</h3>
+                <p><strong>'60er</strong>, '70er, '80er, '90er</p>
+                <p><em>Weitere Filter</em></p>
+            </div>
+            <div class="filter-group">
+                <h3>Tonträger</h3>
+                <p><strong>Vinyl</strong>, CD, Kassette</p>
+                <p><em>Weitere Filter</em></p>
+            </div>
+        </aside>
 
         <section class="center-column">
-            
             <div class="selected-product">
                 <div class="album-info">
                     <img src="cover.jpg" alt="Album Cover von Out Of Our Heads">
@@ -113,7 +136,6 @@
                         <p>Das dritte britische und vierte amerikanische Studioalbum der Band.</p>
                     </div>
                 </div>
-
                 <div class="purchase-section">
                     <p class="price">CHF 35.00</p>
                     <button class="add-to-basket-btn">In den Warenkorb</button>
@@ -123,12 +145,44 @@
             <div class="product-grid-container">
                 <h2>Unsere Auswahl</h2>
                 <div class="product-grid">
+                    <div class="product-card">
+                        <img src="beatles.png" alt="Cover von Sgt. Pepper's Lonely Hearts Club Band">
+                        <h4>Sgt. Pepper's...</h4>
+                        <p>The Beatles (1967)</p>
                     </div>
+                    <div class="product-card">
+                        <img src="king.png" alt="Cover von In the Court of the Crimson King">
+                        <h4>In the Court of...</h4>
+                        <p>King Crimson (1969)</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="who.png" alt="Cover von Magic Bus: The Who on Tour">
+                        <h4>Magic Bus...</h4>
+                        <p>The Who (1968)</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="zappa.png" alt="Cover von Hot Rats">
+                        <h4>Hot Rats</h4>
+                        <p>Frank Zappa (1969)</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="andy.png" alt="Cover von The Velvet Underground & Nico">
+                        <h4>The Velvet...</h4>
+                        <p>The Velvet Underground (1967)</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="jeff.png" alt="Cover von Takes Off">
+                        <h4>Takes Off</h4>
+                        <p>Jefferson Airplane (1966)</p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <aside class="chatbot">
-            </aside>
+            <h2>Chat</h2>
+            <p>Chat-Verlauf...</p>
+        </aside>
     </main>
 
 </body>

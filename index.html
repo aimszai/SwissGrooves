@@ -5,18 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SwissGrooves - Willkommen</title>
     <style>
-        /* Grundlegende Stile für die ganze Seite */
         body, html {
             height: 100%;
             margin: 0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            overflow: hidden; /* Verhindert Scrollen */
+            overflow: hidden;
         }
-
-        /* Container für den Hintergrund */
         .landing-container {
             height: 100%;
-            background-image: url('bg.png'); /* Verweist auf dein Bild */
+            background-image: url('bg.png');
             background-position: center;
             background-repeat: no-repeat;
             background-size: cover;
@@ -25,8 +22,6 @@
             justify-content: center;
             align-items: center;
         }
-        
-        /* Ein dunklerer Überzug, damit der Text besser lesbar ist */
         .landing-container::before {
             content: '';
             position: absolute;
@@ -37,19 +32,15 @@
             background: rgba(0, 0, 0, 0.5);
             z-index: 1;
         }
-
-        /* Logo-Positionierung */
         .logo {
             position: absolute;
             top: 20px;
             left: 20px;
-            width: 150px; /* Passe die Grösse nach Bedarf an */
+            width: 150px;
             z-index: 2;
         }
-
-        /* Die Chat-Box in der Mitte */
         .chat-box {
-            background-color: rgba(20, 20, 20, 0.9); /* GEÄNDERT: Dunkler Hintergrund */
+            background-color: rgba(20, 20, 20, 0.9);
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -57,36 +48,29 @@
             width: 90%;
             max-width: 500px;
             z-index: 2;
-            color: #f0f0f0; /* GEÄNDERT: Standard-Textfarbe auf hell gesetzt */
+            color: #f0f0f0;
         }
-
         .chat-box h1 {
             margin-top: 0;
-            color: #ffffff; /* GEÄNDERT: Helle Überschrift */
+            color: #ffffff;
         }
-
-        /* Eingabefeld für die Nachricht */
         .chat-input {
             width: calc(100% - 22px);
             padding: 10px;
-            border: 1px solid #555; /* GEÄNDERT: Dunklerer Rand */
+            border: 1px solid #555;
             border-radius: 5px;
             margin-bottom: 15px;
             font-size: 16px;
-            background-color: #333; /* GEÄNDERT: Dunkler Hintergrund */
-            color: #fff; /* GEÄNDERT: Helle Schrift für die Eingabe */
+            background-color: #333;
+            color: #fff;
         }
-        
-        /* Stil für den Platzhaltertext im Eingabefeld */
         .chat-input::placeholder {
-            color: #999; /* GEÄNDERT: Hellerer Platzhaltertext */
+            color: #999;
         }
-
-        /* Der Senden-Button (passt bereits gut, kleine Anpassung beim Hover) */
         .send-button {
             width: 100%;
             padding: 12px;
-            background-color: #555; /* Leichte Anpassung für besseren Kontrast */
+            background-color: #555;
             color: white;
             border: none;
             border-radius: 5px;
@@ -94,16 +78,15 @@
             cursor: pointer;
             transition: background-color 0.3s;
         }
-
         .send-button:hover {
-            background-color: #777; /* GEÄNDERT */
+            background-color: #777;
         }
     </style>
 </head>
 <body>
 
     <div class="landing-container">
-        <img src="https://placehold.co/150x50/000000/FFFFFF?text=SwissGrooves" alt="SwissGrooves Logo" class="logo">
+        <img src="logo.png" alt="SwissGrooves Logo" class="logo">
 
         <div class="chat-box">
             <h1>Hallo bei SwissGrooves!</h1>
@@ -116,12 +99,8 @@
     </div>
 
     <script>
-        // Dieses Skript fängt das Absenden des Formulars ab.
         document.getElementById('chat-form').addEventListener('submit', function(event) {
-            // Verhindert das Neuladen der Seite, was das Standardverhalten eines Formulars ist.
             event.preventDefault(); 
-            
-            // Leitet den Benutzer zur Produktseite weiter.
             window.location.href = 'products.html';
         });
     </script>

@@ -67,17 +67,9 @@
         .bot-message { background-color: #2a2a2a; }
         .chat-message p { margin: 0; color: #f0f0f0; }
         .chat-message p strong { color: #fff; }
-
-        /* --- NEUES CSS FÜR "Mehr..." Link --- */
-        .selected-product-details a {
-            color: #aaa;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        .selected-product-details a:hover {
-            text-decoration: underline;
-            color: #fff;
-        }
+        
+        .selected-product-details a { color: #aaa; text-decoration: none; font-weight: bold; }
+        .selected-product-details a:hover { text-decoration: underline; color: #fff; }
 
     </style>
 </head>
@@ -127,7 +119,7 @@
                 </div>
                 <div class="purchase-section">
                     <p class="price">CHF 35.00</p>
-                    <button class="add-to-basket-btn">In den Warenkorb</button>
+                    <button class="add-to-basket-btn" onclick="window.location.href='checkout.html'">In den Warenkorb</button>
                 </div>
             </div>
 

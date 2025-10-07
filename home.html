@@ -26,7 +26,6 @@
         .nav-links a { margin: 0 15px; text-decoration: none; color: #f0f0f0; font-weight: 500; }
         .cart-icon { color: #f0f0f0; }
 
-        /* --- STYLES FOR THE HOMEPAGE --- */
         .hero-section {
             display: flex;
             flex-direction: column;
@@ -91,6 +90,28 @@
             color: #888;
             font-size: 14px;
         }
+        
+        /* --- NEUES CSS FÜR TOGGLE SWITCH --- */
+        .view-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10;
+        }
+        .view-toggle a {
+            background-color: rgba(20, 20, 20, 0.9);
+            color: #f0f0f0;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            border: 1px solid #444;
+            transition: all 0.3s;
+        }
+        .view-toggle a:hover {
+            background-color: #fff;
+            color: #111;
+        }
     </style>
 </head>
 <body>
@@ -144,6 +165,10 @@
             </div>
         </section>
     </main>
+
+    <div class="view-toggle">
+        <a href="index.html">Chat Ansicht</a>
+    </div>
     
     <footer>
         <p>&copy; 2025 SwissGrooves. Alle Rechte vorbehalten.</p>

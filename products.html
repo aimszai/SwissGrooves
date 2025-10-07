@@ -61,31 +61,12 @@
         .filter-group p { color: #888; }
         .filter-group p strong { color: #f0f0f0; }
 
-        /* --- NEUES CSS FÜR DEN CHATBOT --- */
-        .chat-history {
-            margin-top: 15px;
-        }
-        .chat-message {
-            padding: 8px 12px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-            max-width: 90%;
-            line-height: 1.4;
-        }
-        .user-message {
-            background-color: #3a3a3a;
-            align-self: flex-end; /* Nicht verwendet, da wir keine Flexbox auf dem Parent haben, aber gut für die Zukunft */
-        }
-        .bot-message {
-            background-color: #2a2a2a;
-        }
-        .chat-message p {
-            margin: 0;
-            color: #f0f0f0;
-        }
-        .chat-message p strong {
-            color: #fff;
-        }
+        .chat-history { margin-top: 15px; }
+        .chat-message { padding: 8px 12px; border-radius: 10px; margin-bottom: 10px; max-width: 90%; line-height: 1.4; }
+        .user-message { background-color: #3a3a3a; }
+        .bot-message { background-color: #2a2a2a; }
+        .chat-message p { margin: 0; color: #f0f0f0; }
+        .chat-message p strong { color: #fff; }
 
     </style>
 </head>
@@ -140,7 +121,7 @@
             </div>
 
             <div class="product-grid-container">
-                <h2>Unsere Auswahl</h2>
+                <h2>Stöberecke</h2>
                 <div class="product-grid">
                     <div class="product-card">
                         <img src="beatles.png" alt="Cover von Sgt. Pepper's Lonely Hearts Club Band">
@@ -178,7 +159,6 @@
 
         <aside class="chatbot">
             <h2>Chat</h2>
-            
             <div class="chat-history">
                 <div class="chat-message user-message">
                     <p>ich suche die platte out of our heads von den stones</p>
@@ -187,7 +167,6 @@
                     <p><strong>GrooveBot:</strong> Klar. Ich denke mal auf Vinyl? Ich habe Dir Deine Filter gleich mit angepasst, falls Du noch weiterstöbern möchtest. Lass mich wissen, wenn Du noch was brauchst! Wir haben gerade ein super Angebot auf Audio-Technika Tonabnehmer!</p>
                 </div>
             </div>
-
         </aside>
     </main>
 

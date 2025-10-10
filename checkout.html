@@ -86,7 +86,6 @@
             background-color: #fff;
         }
         
-        /* --- CSS FÜR BESTELLÜBERSICHT AKTUALISIERT --- */
         .summary-item {
             display: flex;
             justify-content: space-between;
@@ -151,17 +150,67 @@
             <a href="#">Kontakt</a>
         </nav>
         <a href="checkout.html" class="cart-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 S18.42, 19, 17.58, 19H7.42C6.58, 19, 5.75, 19, 4.91, 19L23 6H6"></path></svg>
         </a>
     </header>
 
     <main class="checkout-container">
         <div class="checkout-form">
-            </div>
+            
+            <h2>Liefer- & Zahlungsdetails</h2>
+            <form>
+                <div class="form-group">
+                    <label for="email">E-Mail Adresse</label>
+                    <input type="email" id="email" name="email">
+                </div>
+
+                <h3>Lieferadresse</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fname">Vorname</label>
+                        <input type="text" id="fname" name="fname">
+                    </div>
+                    <div class="form-group">
+                        <label for="lname">Nachname</label>
+                        <input type="text" id="lname" name="lname">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address">Adresse</label>
+                    <input type="text" id="address" name="address">
+                </div>
+                 <div class="form-row">
+                    <div class="form-group">
+                        <label for="zip">PLZ</label>
+                        <input type="text" id="zip" name="zip">
+                    </div>
+                    <div class="form-group">
+                        <label for="city">Ort</label>
+                        <input type="text" id="city" name="city">
+                    </div>
+                </div>
+
+                <h3>Zahlungsinformationen</h3>
+                <div class="form-group">
+                    <label for="card">Kartennummer</label>
+                    <input type="text" id="card" name="card" placeholder="1234 5678 9101 1121">
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="expiry">Gültig bis</label>
+                        <input type="text" id="expiry" name="expiry" placeholder="MM/YY">
+                    </div>
+                    <div class="form-group">
+                        <label for="cvc">CVC</label>
+                        <input type="text" id="cvc" name="cvc" placeholder="123">
+                    </div>
+                </div>
+                 <button type="submit" class="place-order-btn">Jetzt Kaufen</button>
+            </form>
+        </div>
 
         <div class="order-summary">
             <h2>Bestellübersicht</h2>
-
             <div class="summary-item" data-price-per-item="35">
                 <div class="summary-details">
                     <span class="product-name">Out Of Our Heads - Vinyl</span>
@@ -230,7 +279,6 @@
 
             quantityInput.addEventListener('input', updateTotals);
 
-            // Initial calculation on page load
             updateTotals();
         });
     </script>

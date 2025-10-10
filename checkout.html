@@ -143,7 +143,6 @@
             margin: 0;
         }
 
-        /* --- NEUES CSS FÜR ZAHLUNGSOPTIONEN --- */
         .payment-option {
             display: flex;
             align-items: center;
@@ -232,7 +231,7 @@
                     </div>
                     <div class="payment-option">
                         <input type="radio" id="pigeon" name="payment_method" value="pigeon">
-                        <label for="pigeon">Barzahlung via Trieftaube</label>
+                        <label for="pigeon">Barzahlung via Brieftaube</label>
                     </div>
                      <div class="payment-option">
                         <input type="radio" id="kidney" name="payment_method" value="kidney">
@@ -291,7 +290,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // --- Logik für Preisberechnung (unverändert) ---
             const quantityInput = document.querySelector('.quantity-input');
             const decreaseBtn = document.querySelector('.quantity-btn[data-action="decrease"]');
             const increaseBtn = document.querySelector('.quantity-btn[data-action="increase"]');
@@ -326,7 +324,6 @@
             quantityInput.addEventListener('input', updateTotals);
             updateTotals();
 
-            // --- NEUES JAVASCRIPT FÜR ZAHLUNGSOPTIONEN ---
             const paymentRadios = document.querySelectorAll('input[name="payment_method"]');
             const creditCardDetails = document.getElementById('credit-card-details');
 
@@ -342,7 +339,6 @@
                 radio.addEventListener('change', toggleCreditCardDetails);
             });
 
-            // Initial check on page load
             toggleCreditCardDetails();
         });
     </script>

@@ -39,10 +39,15 @@
             padding: 25px;
             border-radius: 8px;
         }
-        .checkout-form h2, .order-summary h2 {
+        .checkout-form h2, .order-summary h2, .checkout-form h3 {
             margin-top: 0;
             border-bottom: 1px solid #444;
             padding-bottom: 15px;
+        }
+        .checkout-form h3 {
+            font-size: 18px;
+            margin-top: 30px;
+            margin-bottom: 20px;
         }
         .form-group {
             margin-bottom: 20px;
@@ -130,12 +135,34 @@
             background: transparent;
             color: #fff;
             font-size: 16px;
-            -moz-appearance: textfield; /* Firefox */
+            -moz-appearance: textfield;
         }
         .quantity-input::-webkit-outer-spin-button,
         .quantity-input::-webkit-inner-spin-button {
             -webkit-appearance: none;
-            margin: 0; /* Safari and Chrome */
+            margin: 0;
+        }
+
+        /* --- NEUES CSS FÜR ZAHLUNGSOPTIONEN --- */
+        .payment-option {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        .payment-option:hover {
+            background-color: #2a2a2a;
+        }
+        .payment-option input[type="radio"] {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+        }
+        #credit-card-details.hidden {
+            display: none;
         }
 
     </style>
@@ -150,21 +177,19 @@
             <a href="#">Kontakt</a>
         </nav>
         <a href="checkout.html" class="cart-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 S18.42, 19, 17.58, 19H7.42C6.58, 19, 5.75, 19, 4.91, 19L23 6H6"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
         </a>
     </header>
 
     <main class="checkout-container">
         <div class="checkout-form">
-            
             <h2>Liefer- & Zahlungsdetails</h2>
             <form>
+                <h3>Lieferadresse</h3>
                 <div class="form-group">
                     <label for="email">E-Mail Adresse</label>
                     <input type="email" id="email" name="email">
                 </div>
-
-                <h3>Lieferadresse</h3>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="fname">Vorname</label>
@@ -179,7 +204,7 @@
                     <label for="address">Adresse</label>
                     <input type="text" id="address" name="address">
                 </div>
-                 <div class="form-row">
+                <div class="form-row">
                     <div class="form-group">
                         <label for="zip">PLZ</label>
                         <input type="text" id="zip" name="zip">
@@ -191,21 +216,48 @@
                 </div>
 
                 <h3>Zahlungsinformationen</h3>
+                
                 <div class="form-group">
-                    <label for="card">Kartennummer</label>
-                    <input type="text" id="card" name="card" placeholder="1234 5678 9101 1121">
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="expiry">Gültig bis</label>
-                        <input type="text" id="expiry" name="expiry" placeholder="MM/YY">
+                    <div class="payment-option">
+                        <input type="radio" id="twint" name="payment_method" value="twint">
+                        <label for="twint">TWINT</label>
                     </div>
-                    <div class="form-group">
-                        <label for="cvc">CVC</label>
-                        <input type="text" id="cvc" name="cvc" placeholder="123">
+                    <div class="payment-option">
+                        <input type="radio" id="sofort" name="payment_method" value="sofort">
+                        <label for="sofort">Sofortüberweisung</label>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" id="creditcard" name="payment_method" value="creditcard" checked>
+                        <label for="creditcard">Kreditkarte</label>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" id="pigeon" name="payment_method" value="pigeon">
+                        <label for="pigeon">Barzahlung via Trieftaube</label>
+                    </div>
+                     <div class="payment-option">
+                        <input type="radio" id="kidney" name="payment_method" value="kidney">
+                        <label for="kidney">Niere</label>
                     </div>
                 </div>
-                 <button type="submit" class="place-order-btn">Jetzt Kaufen</button>
+
+                <div id="credit-card-details">
+                    <div class="form-group">
+                        <label for="card">Kartennummer</label>
+                        <input type="text" id="card" name="card" placeholder="1234 5678 9101 1121">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="expiry">Gültig bis</label>
+                            <input type="text" id="expiry" name="expiry" placeholder="MM/YY">
+                        </div>
+                        <div class="form-group">
+                            <label for="cvc">CVC</label>
+                            <input type="text" id="cvc" name="cvc" placeholder="123">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="place-order-btn">Jetzt Kaufen</button>
             </form>
         </div>
 
@@ -222,7 +274,6 @@
                     <button class="quantity-btn" data-action="increase">+</button>
                 </div>
             </div>
-
             <div class="summary-item">
                 <span>Zwischentotal</span>
                 <span id="subtotal">CHF 35.00</span>
@@ -240,12 +291,12 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // --- Logik für Preisberechnung (unverändert) ---
             const quantityInput = document.querySelector('.quantity-input');
             const decreaseBtn = document.querySelector('.quantity-btn[data-action="decrease"]');
             const increaseBtn = document.querySelector('.quantity-btn[data-action="increase"]');
             const pricePerItem = parseFloat(document.querySelector('.summary-item').dataset.pricePerItem);
             const shippingCost = 5.00;
-
             const subtotalEl = document.getElementById('subtotal');
             const totalEl = document.getElementById('total-price');
 
@@ -255,14 +306,11 @@
                     quantity = 1;
                     quantityInput.value = 1;
                 }
-
                 const subtotal = quantity * pricePerItem;
                 const total = subtotal + shippingCost;
-
                 subtotalEl.textContent = 'CHF ' + subtotal.toFixed(2);
                 totalEl.textContent = 'CHF ' + total.toFixed(2);
             }
-
             decreaseBtn.addEventListener('click', () => {
                 let currentValue = parseInt(quantityInput.value);
                 if (currentValue > 1) {
@@ -270,16 +318,32 @@
                     updateTotals();
                 }
             });
-
             increaseBtn.addEventListener('click', () => {
                 let currentValue = parseInt(quantityInput.value);
                 quantityInput.value = currentValue + 1;
                 updateTotals();
             });
-
             quantityInput.addEventListener('input', updateTotals);
-
             updateTotals();
+
+            // --- NEUES JAVASCRIPT FÜR ZAHLUNGSOPTIONEN ---
+            const paymentRadios = document.querySelectorAll('input[name="payment_method"]');
+            const creditCardDetails = document.getElementById('credit-card-details');
+
+            function toggleCreditCardDetails() {
+                if (document.getElementById('creditcard').checked) {
+                    creditCardDetails.classList.remove('hidden');
+                } else {
+                    creditCardDetails.classList.add('hidden');
+                }
+            }
+
+            paymentRadios.forEach(radio => {
+                radio.addEventListener('change', toggleCreditCardDetails);
+            });
+
+            // Initial check on page load
+            toggleCreditCardDetails();
         });
     </script>
 

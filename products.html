@@ -28,12 +28,11 @@
         .main-content { display: grid; grid-template-columns: 250px 1fr 300px; gap: 20px; padding: 20px; height: calc(100vh - 82px); }
         .filters, .center-column { background-color: rgba(20, 20, 20, 0.9); padding: 20px; border-radius: 8px; }
         
-        /* --- CHATBOT-STIL AKTUALISIERT --- */
         .chatbot {
             background-color: rgba(20, 20, 20, 0.9);
             padding: 20px;
             border-radius: 8px;
-            display: flex; /* Wichtig für die Positionierung des Eingabefeldes */
+            display: flex;
             flex-direction: column;
         }
 
@@ -71,7 +70,7 @@
         .filter-group p { color: #888; }
         .filter-group p strong { color: #f0f0f0; }
 
-        .chat-history { margin-top: 15px; flex-grow: 1; overflow-y: auto;} /* Nimmt verfügbaren Platz ein */
+        .chat-history { margin-top: 15px; flex-grow: 1; overflow-y: auto;}
         .chat-message { padding: 8px 12px; border-radius: 10px; margin-bottom: 10px; max-width: 90%; line-height: 1.4; }
         .user-message { background-color: #3a3a3a; }
         .bot-message { background-color: #2a2a2a; }
@@ -81,10 +80,9 @@
         .selected-product-details a { color: #aaa; text-decoration: none; font-weight: bold; }
         .selected-product-details a:hover { text-decoration: underline; color: #fff; }
         
-        /* --- CSS FÜR CHAT-EINGABEFELD --- */
         .chat-input-area {
             display: flex;
-            margin-top: auto; /* Schiebt das Feld nach unten */
+            margin-top: auto;
             padding-top: 15px;
             border-top: 1px solid #444;
         }
@@ -109,6 +107,28 @@
             background-color: #777;
         }
 
+        .toast-notification {
+            visibility: hidden;
+            opacity: 0;
+            position: fixed;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            background-color: #fff;
+            color: #111;
+            padding: 16px 30px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: opacity 0.5s, visibility 0.5s;
+            z-index: 1000;
+        }
+        .toast-notification.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
     </style>
 </head>
 <body>
@@ -120,16 +140,82 @@
             <a href="#">Kontakt</a>
         </nav>
         <a href="checkout.html" class="cart-icon">
-            <svg xmlns="http://www.w.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
         </a>
     </header>
 
     <main class="main-content">
         <aside class="filters">
-            </aside>
+            <h2>Filter</h2>
+            <div class="filter-group">
+                <h3>Genre</h3>
+                <p><strong>Rock</strong>, Jazz, Pop, Klassik</p>
+                <p><em>Weitere Filter</em></p>
+            </div>
+            <div class="filter-group">
+                <h3>Jahrzehnt</h3>
+                <p><strong>'60er</strong>, '70er, '80er, '90er</p>
+                <p><em>Weitere Filter</em></p>
+            </div>
+            <div class="filter-group">
+                <h3>Tonträger</h3>
+                <p><strong>Vinyl</strong>, CD, Kassette</p>
+                <p><em>Weitere Filter</em></p>
+            </div>
+        </aside>
 
         <section class="center-column">
-            </section>
+            <div class="selected-product">
+                <div class="album-info">
+                    <img src="cover.jpg" alt="Album Cover von Out Of Our Heads">
+                    <div class="selected-product-details">
+                        <h2>Out Of Our Heads</h2>
+                        <p>The Rolling Stones (1965)</p>
+                        <p>Das dritte britische und vierte amerikanische Studioalbum der Band. <a href="#">Mehr...</a></p>
+                    </div>
+                </div>
+                <div class="purchase-section">
+                    <p class="price">CHF 35.00</p>
+                    <button class="add-to-basket-btn" id="addToCartBtn">In den Warenkorb</button>
+                </div>
+            </div>
+
+            <div class="product-grid-container">
+                <h2>Stöberecke</h2>
+                <div class="product-grid">
+                    <div class="product-card">
+                        <img src="beatles.png" alt="Cover von Sgt. Pepper's Lonely Hearts Club Band">
+                        <h4>Sgt. Pepper's...</h4>
+                        <p>The Beatles (1967)</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="king.png" alt="Cover von In the Court of the Crimson King">
+                        <h4>In the Court of...</h4>
+                        <p>King Crimson (1969)</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="who.png" alt="Cover von Magic Bus: The Who on Tour">
+                        <h4>Magic Bus...</h4>
+                        <p>The Who (1968)</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="zappa.png" alt="Cover von Hot Rats">
+                        <h4>Hot Rats</h4>
+                        <p>Frank Zappa (1969)</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="andy.png" alt="Cover von The Velvet Underground & Nico">
+                        <h4>The Velvet...</h4>
+                        <p>The Velvet Underground (1967)</p>
+                    </div>
+                    <div class="product-card">
+                        <img src="jeff.png" alt="Cover von Takes Off">
+                        <h4>Takes Off</h4>
+                        <p>Jefferson Airplane (1966)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <aside class="chatbot">
             <h2>Chat</h2>
@@ -141,7 +227,6 @@
                     <p><strong>GrooveBot:</strong> Klar. Ich denke mal auf Vinyl? Ich habe Dir Deine Filter gleich mit angepasst, falls Du noch weiterstöbern möchtest. Lass mich wissen, wenn Du noch was brauchst! Wir haben gerade ein super Angebot auf Audio-Technika Tonabnehmer!</p>
                 </div>
             </div>
-
             <div class="chat-input-area">
                 <input type="text" placeholder="Frage an GrooveBot...">
                 <button>Senden</button>
@@ -149,8 +234,18 @@
         </aside>
     </main>
 
+    <div id="toast" class="toast-notification">Produkt hinzugefügt</div>
+
     <script>
-        // JS remains unchanged
+        const addToCartBtn = document.getElementById('addToCartBtn');
+        const toast = document.getElementById('toast');
+
+        addToCartBtn.addEventListener('click', function() {
+            toast.classList.add('show');
+            setTimeout(function() {
+                toast.classList.remove('show');
+            }, 3000);
+        });
     </script>
 </body>
 </html>
